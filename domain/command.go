@@ -32,6 +32,8 @@ func (ch CreateOrderCommandHandler) Handle(command cqrs.CommandMessage) error {
 			Payload: string(orderStr),
 		}
 
+		models.CreateOrder()
+
 		models.CreateEvent(event)
 	default:
 		return errors.New("bad command type")
